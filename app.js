@@ -5,11 +5,20 @@ var app = express();
 
 var port = 5000;
 
+var numbers = [];
+
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.get('/*', function(req, res){
-    res.send('Request Received');
+app.post('number', function(req, res){
+    console.log('number post was hit');
+    numbers.push(req.body);
+    console.log(numbers);
+    res.sendStatus(201);
+});
+
+app.get('/number', function(req, res){
+    res.send(numbers);
 });
 
 
