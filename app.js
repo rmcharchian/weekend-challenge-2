@@ -1,18 +1,16 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 
-var express = express();
+var app = express();
 
 var port = 5000;
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
-
-
-
-
-
+app.get('/*', function(req, res){
+    res.send('Request Received');
+});
 
 
 
