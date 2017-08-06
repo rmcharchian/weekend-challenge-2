@@ -2,7 +2,8 @@ console.log('client.js is working');
 
 $(document).ready(function(){
     console.log('jquery is working');
-    $('#enterNumbersbutton').on('click', function(){
+    $('#enterNumbersButton').click(function(){
+        alert("Is this working?");
         console.log('enterNumbersButton was clicked'); //I can't get this to confirm
         var firstNumberBox = $('#firstNumberBox').val();
         var secondNumberBox = $('#secondNumberBox').val();
@@ -17,7 +18,7 @@ $(document).ready(function(){
             success: function (response){
                 console.log(response);
             }
-        })
+        });
     });
 });
 
