@@ -2,23 +2,51 @@ console.log('client.js is working');
 
 $(document).ready(function(){
     console.log('jquery is working');
-    $('#enterNumbersButton').click(function(){
-        alert("Is this working?");
-        console.log('enterNumbersButton was clicked'); //I can't get this to confirm
+    $('#addNumbersButton').click(function(){
+        console.log('addNumbersButton was clicked'); 
         var firstNumberBox = $('#firstNumberBox').val();
         var secondNumberBox = $('#secondNumberBox').val();
         var inputObject = {
             numberOne: firstNumberBox,
             numberTwo: secondNumberBox
         };
-        $.ajax({
-            method: 'POST',
-            url: '/number',
-            data: inputObject,
-            success: function (response){
-                console.log(response);
-            }
+    $('#subtractNumbersButton').click(function(){
+        console.log('subtractNumbersButton was clicked'); 
+        var firstNumberBox = $('#firstNumberBox').val();
+        var secondNumberBox = $('#secondNumberBox').val();
+        var inputObject = {
+            numberOne: firstNumberBox,
+            numberTwo: secondNumberBox
+        };
+    $('#multiplyNumbersButton').click(function(){   
+        console.log('multiplyNumbersButton was clicked'); 
+        var firstNumberBox = $('#firstNumberBox').val();
+        var secondNumberBox = $('#secondNumberBox').val();
+        var inputObject = {
+            numberOne: firstNumberBox,
+            numberTwo: secondNumberBox
+        };
+    $('#divideNumbersButton').click(function(){
+        console.log('subtractNumbersButton was clicked'); 
+        var firstNumberBox = $('#firstNumberBox').val();
+        var secondNumberBox = $('#secondNumberBox').val();
+        var inputObject = {
+            numberOne: firstNumberBox,
+            numberTwo: secondNumberBox
+        };
+
+
+
+        //$.ajax({
+            //method: 'POST',
+            //url: '/number',
+            //data: inputObject,
+            //success: function (response){
+                //console.log(response);
+            //}
         });
+    });
+    });
     });
 });
 
