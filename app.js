@@ -1,23 +1,38 @@
 var express = require('express');
-var bodyParser = require('body-parser');  //can you add body parser too early? 
+var bodyParser = require('body-parser');   
 
 var app = express();
-
+ 
 var port = 5000;
 
 var numbers = [];
 
+function calculate(objectOne, objectTwo, mathButton) {
+    if (mathButton === 'addNumbersButton') {
+        numbers = [+objectOne + +objectTwo];
+    } else if (mathButton === 'subtractNumbersButton') {
+        numbers = [+objectOne - +objectTwo];
+    } else if (mathButton === 'multiplyNumbersButton') {
+        numbers = [+objectOne * +objectTwo];
+    } else {
+        numbers = [(+objectOne / +objectTwo)];
+    };
+    return numbers;
+};
+
+
+
 app.use(express.static('public'));
-app.use(bodyParser.urlencoded({extended: true})); //see body parser question above
+app.use(bodyParser.urlencoded({extended: true})); 
 
-//app.post('number', function(req, res){
-    //console.log('number post was hit');
-    //numbers.push(req.body);
-    //console.log(numbers);
-    //res.sendStatus(201);
-//});
+app.post('/word', function (req,res){
+    calculate(req.body.numberOne, req.body.numberTwo, req.body.type);
+    console.log(numbers);
+    console.log(req.body);
+})
 
-app.get('/number', function(req, res){
+app.get('/word', function(req, res) {
+    console.log(numbers);
     res.send(numbers);
 });
 

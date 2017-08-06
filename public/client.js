@@ -2,51 +2,41 @@ console.log('client.js is working');
 
 $(document).ready(function(){
     console.log('jquery is working');
-    $('#addNumbersButton').click(function(){
-        console.log('addNumbersButton was clicked'); 
+    $('.mathButtons').click(function(){
+        console.log('a math button has been clicked'); 
         var firstNumberBox = $('#firstNumberBox').val();
         var secondNumberBox = $('#secondNumberBox').val();
+        var mathType = $(this).attr('id');
+        console.log(mathType);
         var inputObject = {
             numberOne: firstNumberBox,
-            numberTwo: secondNumberBox
-        };
-    $('#subtractNumbersButton').click(function(){
-        console.log('subtractNumbersButton was clicked'); 
-        var firstNumberBox = $('#firstNumberBox').val();
-        var secondNumberBox = $('#secondNumberBox').val();
-        var inputObject = {
-            numberOne: firstNumberBox,
-            numberTwo: secondNumberBox
-        };
-    $('#multiplyNumbersButton').click(function(){   
-        console.log('multiplyNumbersButton was clicked'); 
-        var firstNumberBox = $('#firstNumberBox').val();
-        var secondNumberBox = $('#secondNumberBox').val();
-        var inputObject = {
-            numberOne: firstNumberBox,
-            numberTwo: secondNumberBox
-        };
-    $('#divideNumbersButton').click(function(){
-        console.log('subtractNumbersButton was clicked'); 
-        var firstNumberBox = $('#firstNumberBox').val();
-        var secondNumberBox = $('#secondNumberBox').val();
-        var inputObject = {
-            numberOne: firstNumberBox,
-            numberTwo: secondNumberBox
+            numberTwo: secondNumberBox,
+            type: mathType
         };
 
+        console.log(inputObject);
 
-
-        //$.ajax({
-            //method: 'POST',
-            //url: '/number',
-            //data: inputObject,
-            //success: function (response){
-                //console.log(response);
-            //}
-        });
-    });
-    });
+         
+        $.ajax({
+            method: 'POST',
+            url: '/word',
+            data: inputObject,
+            success: function(response){
+                console.log(response);
+            
+            }
+        })
     });
 });
 
+
+function numbersArray(numbers){
+    $('#messageContainer').empty();
+    for (var i = 0; i < numbers.length; i++) {
+        var numbers = numbersArray[i];
+        $('#messageContainer').prepend(
+
+        )
+        
+    }
+} 
